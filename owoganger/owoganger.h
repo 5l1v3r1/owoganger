@@ -12,10 +12,11 @@ private:
 	void load(HANDLE, HANDLE); // step 2
 	void rollback(HANDLE); // step 3
 	void animate(HANDLE); // step 4
+	void upgradePrivileges();
 	BOOL checkNtStatus(NTSTATUS *);
 	void readFile();
-	LPCSTR source; //source executable path
-	LPCSTR destination; //destination executable path
+	LPCWSTR source; //source executable path
+	LPCWSTR destination; //destination executable path
 	HMODULE ntdll;
 	std::vector<BYTE> exeBuf;
 
