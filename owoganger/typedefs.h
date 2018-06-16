@@ -2,7 +2,8 @@
 #include <Windows.h>
 #include <KtmW32.h>
 
-
+#define MAX_BUF_SIZE 0x1000
+#define PE_HEADER 0x1000
 #define GDI_HANDLE_BUFFER_SIZE      34
 #define RTL_USER_PROC_PARAMS_NORMALIZED 0x00000001
 

@@ -24,12 +24,21 @@
     <ClInclude Include="typedefs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="argParser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="owoganger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="owoganger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="argParser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
