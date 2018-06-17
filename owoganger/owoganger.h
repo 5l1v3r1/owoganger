@@ -5,7 +5,8 @@
 class owoganger
 {
 public:
-	owoganger(std::string,std::string);
+	owoganger(std::string,std::string,DWORD);
+	owoganger(std::string, std::string, DWORD, std::string); // xor overload
 	~owoganger();
 
 private:
@@ -21,6 +22,8 @@ private:
 	HMODULE ntdll;
 	std::vector<BYTE> exeBuf;
 	PRTL_USER_PROCESS_PARAMETERS procParams;
+	DWORD SOURCE_FILE_FORMAT;
+	std::string XOR_KEY; // xor key if file format in XOR
 
 
 

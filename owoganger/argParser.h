@@ -10,6 +10,7 @@ private:
 	void parse();
 	void printUsage();
 	void printHelp();
+	void printAscii();
 	int argc;
 	char **argv;
 };
