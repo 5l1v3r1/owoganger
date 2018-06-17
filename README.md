@@ -1,3 +1,6 @@
-# owoganger
-I guess it's injecting :) <br>
-But not really. If someone could point me to the reason why it's not working, I'd be happy
+# OWOGANGER
+
+Working under 64bit with injectable 64bit binary<br>
+Probably will never add 32bit support. <br>
+Was getting successful injection into notepad.<br>
+

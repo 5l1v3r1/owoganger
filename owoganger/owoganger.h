@@ -13,13 +13,14 @@ private:
 	void load(HANDLE, HANDLE); // step 2
 	void rollback(HANDLE); // step 3
 	void animate(HANDLE); // step 4
-	//PRTL_USER_PROCESS_PARAMETERS * paramsInit();
+	PRTL_USER_PROCESS_PARAMETERS paramsInit();
 	BOOL checkNtStatus(NTSTATUS *);
 	void readFile();
 	LPCWSTR source; //source executable path
 	LPCWSTR destination; //destination executable path
 	HMODULE ntdll;
 	std::vector<BYTE> exeBuf;
+	PRTL_USER_PROCESS_PARAMETERS procParams;
 
 
 
