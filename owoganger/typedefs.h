@@ -372,3 +372,25 @@
 		IN DWORD SizeOfStackReserve,
 		OUT LPVOID lpBytesBuffer
 		);
+	typedef NTSTATUS(NTAPI *pNtResumeThread)
+		(
+			IN HANDLE               ThreadHandle,
+			OUT PULONG              SuspendCount OPTIONAL
+			);
+	typedef NTSTATUS(NTAPI *pNtAllocateVirtualMemory)
+		(
+		HANDLE    ProcessHandle,
+		PVOID     *BaseAddress,
+		ULONG_PTR ZeroBits,
+		PSIZE_T   RegionSize,
+		ULONG     AllocationType,
+		ULONG     Protect
+	);
+	typedef NTSTATUS(NTAPI *pNtWriteVirtualMemory)
+		(
+			IN HANDLE               ProcessHandle,
+			IN PVOID                BaseAddress,
+			IN PVOID                Buffer,
+			IN ULONG                NumberOfBytesToWrite,
+			OUT PULONG              NumberOfBytesWritten OPTIONAL
+			);

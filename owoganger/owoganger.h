@@ -1,5 +1,6 @@
 #pragma once
 #include "stdafx.h"
+#include "typedefs.h"
 #include <vector>
 class owoganger
 {
@@ -12,7 +13,7 @@ private:
 	void load(HANDLE, HANDLE); // step 2
 	void rollback(HANDLE); // step 3
 	void animate(HANDLE); // step 4
-	void upgradePrivileges();
+	//PRTL_USER_PROCESS_PARAMETERS * paramsInit();
 	BOOL checkNtStatus(NTSTATUS *);
 	void readFile();
 	LPCWSTR source; //source executable path
