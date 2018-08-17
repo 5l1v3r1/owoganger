@@ -5,59 +5,55 @@
 
 
 
-decoder::decoder(DWORD flag, std::vector<BYTE> * encodedBuf)
+decoder::decoder(DWORD flag, std::vector<BYTE> * encodedBuf, std::string xorKey)
 {
-	this->encodedBuf = *encodedBuf;
+	this->encodedBuf = encodedBuf;
 	this->flag = flag;
-}
-
-decoder::decoder(DWORD flag, std::vector<BYTE> * encodedBuf, std::string xor_key)
-{
-	this->encodedBuf = *encodedBuf;
-	this->flag = flag;
-	this->xor_key == xor_key;
+	this->xor_key = xorKey;
+	//this->decodedBuf = new std::vector<BYTE>;
 }
 
 
 decoder::~decoder()
 {
+	
 }
 
-std::vector<BYTE>* decoder::initDecode()
+void decoder::initDecode()
 {
-	if (this->flag == SOURCE_B64) {
-		this->decb64();
-	}
 	if (this->flag == SOURCE_XOR) {
 		if (!this->xor_key.empty()) {
 			this->decxor();
+			std::cout << "[+] Dexored the file" << std::endl;
 		}
 		else {
 			std::cout << "[-] No xor key supplied" << std::endl;
 			exit(-1);
 		}
 	}
-	return &this->decodedBuf;
+	return;
 }
 
-void decoder::decb64()
-{
-	if (this->encodedBuf.size() == 0) {
-		std::cout << "[-] Empty encoded buffer" << std::endl;
-		exit(-2);
-	}
-	BYTE * tmpBuf = new BYTE[this->encodedBuf.size()];// assuming it's not so big lol
-	std::copy(this->encodedBuf.begin(), this->encodedBuf.end(), tmpBuf);
-	//DO MAGIC
-
-}
 
 void decoder::decxor() {
-	if (this->encodedBuf.size() == 0) {
+	if (this->encodedBuf->size() == 0) {
 		std::cout << "[-] Empty encoded buffer" << std::endl;
 		exit(-2);
 	}
-	BYTE * tmpBuf = new BYTE[this->encodedBuf.size()];
-	std::copy(this->encodedBuf.begin(), this->encodedBuf.end(), tmpBuf);
-	//DO MAGIC
+	int i = 0;
+	std::cout << "[x] Dexoring the file" << std::endl;
+	if (this->xor_key.length() == 1) {	//one char xor
+		while (i < this->encodedBuf->size())  
+		{
+			this->encodedBuf->at(i) = (BYTE)(this->encodedBuf->at(i) ^ (BYTE)this->xor_key[0]);
+			i++;
+		}
+	
+	}
+	else {
+		while (i < this->encodedBuf->size()) {
+			this->encodedBuf->at(i) = (BYTE)(this->encodedBuf->at(i) ^ (BYTE)this->xor_key[i % this->xor_key.length()]);
+			i++;
+		}
+	}
 }

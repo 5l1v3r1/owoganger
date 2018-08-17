@@ -20,7 +20,7 @@ private:
 	LPCWSTR source; //source executable path
 	LPCWSTR destination; //destination executable path
 	HMODULE ntdll;
-	std::vector<BYTE> exeBuf;
+	std::vector<BYTE> * exeBuf;
 	PRTL_USER_PROCESS_PARAMETERS procParams;
 	DWORD SOURCE_FILE_FORMAT;
 	std::string XOR_KEY; // xor key if file format in XOR

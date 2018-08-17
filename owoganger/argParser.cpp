@@ -47,14 +47,11 @@ void argParser::parse()
 			//check if we have key supplied
 			if (argc >= 7) {
 				std::string xor_key = std::string(argv[6]);
-				new owoganger(std::string(argv[2]), std::string(argv[4]), SOURCE_XOR,std::string(argv[7]));
+				new owoganger(std::string(argv[2]), std::string(argv[4]), SOURCE_XOR,std::string(argv[6]));
 			}
 			else {
 				std::cout << "No XOR key supplied" << std::endl;
 			}
-		}
-		else if (std::string(argv[5]) == "--base64") {
-			new owoganger(std::string(argv[2]), std::string(argv[4]), SOURCE_B64);
 		}
 	}
 
@@ -80,7 +77,6 @@ void argParser::printHelp() {
 	cout << "\t--source\tTo specify source path to payload" << endl;
 	cout << "\t--dest\t\tTo specify destination path to file which will be transacted" << endl;
 	cout << "\t--xor KEY\tsource file will be read and decrypted with supplied key" << endl;
-	cout << "\t--b64\t\tsource file will be read and decoded from base64" << endl;
 }
 
 void argParser::printAscii() {
