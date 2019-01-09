@@ -9,7 +9,7 @@ Here's commandline description<br>
 `--help` to print all the available options (there aren't many)<br>
 ### Required arguments
 `--source %PATH%` replace %PATH% with path to your malicious executable<br>
-`--dest %PATH` replace %PATH% with path to your malicious executable<br>
+`--dest %PATH` replace %PATH% with path to benign executable<br>
 
 ### Optional arguments
 `--xor KEY` replace KEY with key that you used to xor the binary, it can be one char or multiple chars.
